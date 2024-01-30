@@ -1,0 +1,4 @@
+repository "IM2073_GameDevRWF@MiniwaMio@cloud"
+  path "/"
+    br "/main"
+    co "/main"
