@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class polygon_fps_controller : MonoBehaviour
 {
@@ -159,6 +160,35 @@ public class polygon_fps_controller : MonoBehaviour
 
     public TextMesh ammo_gui;
     public TextMesh health_gui;
+    public bool gameOver;
+    bool isEven = false;
+
+
+
+    private void Update()
+    {
+        // Player health status
+        health_gui.text = "HP : " + player_health;
+
+
+        if(player_health <= 0)
+        {
+            gameOver = true;
+        }
+
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.gameObject.tag == "Enemy")
+        {
+
+            this.player_health -= 10;
+
+
+        }
+    }
 
 
 
@@ -185,8 +215,6 @@ public class polygon_fps_controller : MonoBehaviour
             aim_point.SetActive(true);
         }
 
-        // Player health status
-        health_gui.text = "HP : " + player_health;
 
 
         // Current magazine count
@@ -982,6 +1010,8 @@ public class polygon_fps_controller : MonoBehaviour
             }
         }
     }
+
+    
 
     public Transform skin_folder;
 
