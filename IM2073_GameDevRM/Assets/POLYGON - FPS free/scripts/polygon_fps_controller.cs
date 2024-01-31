@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class polygon_fps_controller : MonoBehaviour
 {
@@ -163,34 +164,67 @@ public class polygon_fps_controller : MonoBehaviour
     public bool gameOver;
     bool isEven = false;
 
+    public GameObject m_GotHitScreen;
 
+    
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.gameObject.tag == "Enemy")
+        {
+            var timeSpan = DateTime.Now;
+            if (timeSpan.Second % 2 == 0)
+            {
+                if (isEven == false)
+                {
+                    gotHurt();
+                    //reduce health here
+                    this.player_health -= 10;
+                }
+                isEven = true;
+            }
+            else
+            {
+                isEven = false;
+            }
+
+
+        }
+    }
+
+    void gotHurt()
+    {
+        var color = m_GotHitScreen.GetComponent<Image>().color;
+        color.a = 0.8f;
+
+        m_GotHitScreen.GetComponent<Image>().color = color;
+    }
 
     private void Update()
     {
         // Player health status
+
+        if (m_GotHitScreen != null)
+        {
+            if(m_GotHitScreen.GetComponent<Image>().color.a > 0)
+            {
+                var color = m_GotHitScreen.GetComponent<Image>().color;
+                color.a -= 0.001f;
+
+                m_GotHitScreen.GetComponent<Image>().color = color;
+            }
+        }
+
         health_gui.text = "HP : " + player_health;
 
 
-        if(player_health <= 0)
+        if (player_health <= 0)
         {
             gameOver = true;
         }
 
 
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.gameObject.tag == "Enemy")
-        {
-
-            this.player_health -= 10;
-
-
-        }
-    }
-
-
 
     void FixedUpdate()
     {

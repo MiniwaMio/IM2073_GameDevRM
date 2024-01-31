@@ -12,6 +12,7 @@ public class NavigationAI : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        this.player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
