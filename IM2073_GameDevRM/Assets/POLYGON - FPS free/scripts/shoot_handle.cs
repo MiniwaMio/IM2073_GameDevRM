@@ -69,9 +69,9 @@ public class shoot_handle : MonoBehaviour
             if (hit.collider.tag == "body")
             {
 
+                Debug.Log("BUNNY BUNNY BUNNY");
 
 
-               
                 hit.collider.gameObject.GetComponent<bunny_receive_dmg>().take_dmg(dmg);
 
 
@@ -83,11 +83,20 @@ public class shoot_handle : MonoBehaviour
 
             }
 
+            if (hit.collider.tag == "Enemy")
+            {
+
+                Debug.Log("YOU HIT YOU HIT YOU HIT YOU HIT");
+
+
+                hit.collider.gameObject.GetComponent<Zombie_take_damage>().take_dmg(25);
 
 
 
 
-           
+            }
+
+
             if (hit.collider.tag == "petrol")
             {
                 recyle_particles_performance.GetComponent<recyle_inst>().metall_particle_new(hit.point, (pos - hit.point));
@@ -120,7 +129,7 @@ public class shoot_handle : MonoBehaviour
 
 
 
-            if (hit.collider.tag == "stone" || hit.collider.tag == "Untagged")
+            if (hit.collider.tag == "stone")
             {
 
                 recyle_particles_performance.GetComponent<recyle_inst>().stone_particle_new(hit.point, (pos - hit.point));
