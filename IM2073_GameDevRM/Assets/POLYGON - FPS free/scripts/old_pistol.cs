@@ -453,7 +453,7 @@ public class old_pistol : MonoBehaviour
 
         // shooting from the camera
         shoot_handle.GetComponent<shoot_handle>().register_shoot(Cam.transform.position, Cam.transform.TransformDirection(Vector3.forward - Add_spread), Joule);
-
+        Debug.Log(Joule);
         // If it is fullauto, a firerate delay  get added
         if (full_auto)
         {

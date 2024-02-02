@@ -29,3 +29,4 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(spawnEnemy(interval, enemy));
     }
 }
+

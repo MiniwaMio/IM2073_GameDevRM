@@ -61,7 +61,6 @@ public class polygon_fps_controller : MonoBehaviour
 
         GameObject target_add = GameObject.FindGameObjectWithTag("targets");
 
-        target_add.GetComponent<targets_for_bunny>().Add_Target(gameObject);
 
 
 
