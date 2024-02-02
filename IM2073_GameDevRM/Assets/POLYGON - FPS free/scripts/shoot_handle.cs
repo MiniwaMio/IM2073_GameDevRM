@@ -78,9 +78,6 @@ public class shoot_handle : MonoBehaviour
                
                 recyle_particles_performance.GetComponent<recyle_inst>().blood_particle_new(hit.point, (pos - hit.point));
 
-
-
-
             }
 
             if (hit.collider.tag == "Enemy")
@@ -92,7 +89,7 @@ public class shoot_handle : MonoBehaviour
                 hit.collider.gameObject.GetComponent<Zombie_take_damage>().take_dmg(25);
 
 
-
+                recyle_particles_performance.GetComponent<recyle_inst>().blood_particle_new(hit.point, (pos - hit.point));
 
             }
 

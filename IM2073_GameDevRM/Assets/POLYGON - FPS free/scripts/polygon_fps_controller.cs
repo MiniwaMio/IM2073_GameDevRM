@@ -165,6 +165,7 @@ public class polygon_fps_controller : MonoBehaviour
     bool isEven = false;
 
     public GameObject m_GotHitScreen;
+    public AudioSource soundPlayer;
 
     
 
@@ -180,6 +181,7 @@ public class polygon_fps_controller : MonoBehaviour
                     gotHurt();
                     //reduce health here
                     this.player_health -= 10;
+                    soundPlayer.Play();
                 }
                 isEven = true;
             }

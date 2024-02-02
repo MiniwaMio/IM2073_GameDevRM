@@ -13,10 +13,13 @@ public class TestZombie : MonoBehaviour
     public int hp;
     private NavMeshAgent agent;
 
+    int count = 0;
+
     Animator anim;
 
     [SerializeField] private ZombieHealthBar healthBar;
-    
+
+    public AudioSource soundZombie;
 
     // Start is called before the first frame update
     void Start()
@@ -33,19 +36,25 @@ public class TestZombie : MonoBehaviour
         {
             dead();
         }
+        
     }
 
     public void dead()
     {
-        isDead = true;
-
+        isDead = false;
         var collider = GetComponent<Collider>();
         Destroy(collider );
+
+        if (count == 0)
+        {
+            soundZombie.Play();
+            count++;
+        }
 
         anim.SetTrigger("Died");
 
         agent.isStopped = true;
-        Destroy(gameObject,2);
+        Destroy(gameObject,1);
     }
 
     public void take_damage(int dmg, bool headshot = false)

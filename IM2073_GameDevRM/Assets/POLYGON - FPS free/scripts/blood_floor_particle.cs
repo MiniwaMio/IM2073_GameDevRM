@@ -42,8 +42,8 @@ public class blood_floor_particle : MonoBehaviour
                 Vector3 pos = collisionEvents[i].intersection;
                 Vector3 force = collisionEvents[i].velocity * 10;
 
-               
-                recyle_particles_performance.GetComponent<recyle_inst>().blood_decal_new(collisionEvents[i].intersection, collisionEvents[i].normal);
+
+                //recyle_particles_performance.GetComponent<recyle_inst>().blood_decal_new(collisionEvents[i].intersection, collisionEvents[i].normal);
 
 
             }
