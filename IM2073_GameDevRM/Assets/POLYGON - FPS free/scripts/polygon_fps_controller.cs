@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class polygon_fps_controller : MonoBehaviour
 {
@@ -217,11 +218,17 @@ public class polygon_fps_controller : MonoBehaviour
         }
 
         health_gui.text = "HP : " + player_health;
-
+        int ctn = 0;
 
         if (player_health <= 0)
         {
             gameOver = true;
+            
+            if (ctn == 0)
+            {
+                SceneManager.LoadScene("GameOver");
+                ctn++;
+            }
         }
 
 

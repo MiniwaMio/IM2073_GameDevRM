@@ -61,7 +61,7 @@ public class TestZombie : MonoBehaviour
     {
         
         hp -= dmg;
-        Debug.Log(hp);
+        //Debug.Log(hp);
 
         healthBar.SetHealthBar(hp);
         
