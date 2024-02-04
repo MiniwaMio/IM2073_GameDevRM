@@ -378,6 +378,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980d5db4ca330434f9e54297df6be1f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueStrings:
+  - text: ALL OUT FOOD
+    isEnd: 0
+    isQuestion: 1
+    answwerOption1: 'START '
+    option1IndexJump: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  NPCTransform: {fileID: 1624756057}
 --- !u!65 &1197875058
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1170,6 +1183,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91b29d7db42c7449d85b298aa300f48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueParent: {fileID: 1527783516}
+  dialogueText: {fileID: 1567471112}
+  option1Button: {fileID: 1251663378}
+  typingSpeed: 0.05
+  turnSpeed: 2
+  FirstPersonController: {fileID: 1612233179}
+--- !u!114 &1612233179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612233174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791a5cfc96e3412eb16347f576f4904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1624756057 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4882481920500871233, guid: 7d67ac5cfda0b944580afbed7561ec82, type: 3}
+  m_PrefabInstance: {fileID: 1740513622}
+  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &1682494714
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1347,13 +1383,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerFPS
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2083848659997510405, guid: 3ab6ad047c9964f00a5debaae6943374, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3958708988366404576, guid: 3ab6ad047c9964f00a5debaae6943374, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1612233178}
+    - targetCorrespondingSourceObject: {fileID: 3958708988366404576, guid: 3ab6ad047c9964f00a5debaae6943374, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1612233179}
   m_SourcePrefab: {fileID: 100100000, guid: 3ab6ad047c9964f00a5debaae6943374, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
