@@ -42,12 +42,12 @@ public class DialogueManager : MonoBehaviour
 
         StartCoroutine(TurnCameraTowardsNPC(NPC));
 
-        dialogueList = textToPrint;
-        currentDialogueIndex = 0;
+        dialogueList = texttoPrint;
+        cuurentDialogueIndex = 0;
 
         DisableButtons();
 
-        StartCoroutine(PrintDialogue());
+        StartCoroutine(PrintDialogie());
     }
 
     private void DisableButtons()
@@ -78,9 +78,9 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator PrintDialogie()
     {
-        while (currentDialogueIndex < dialogueList.Count)
+        while (cuurentDialogueIndex < dialogueList.Count)
         {
-            dialogueString line = dialogueList[currentDialogueIndex];
+            dialogueString line = dialogueList[cuurentDialogueIndex];
 
             line.startDialogueEvent? .Invoke();
 
@@ -90,7 +90,7 @@ public class DialogueManager : MonoBehaviour
                 
                 option1Button.interactable = true; 
 
-                 option1Button.GetComponetInChildren<TMP_Text>().text = line.answwerOption1;
+                 option1Button.GetComponentInChildren<TMP_Text>().text = line.answwerOption1;
 
                  option1Button.onClick.AddListener(() => HandleOptionSelected(line.option1IndexJump));
 
@@ -115,7 +115,7 @@ public class DialogueManager : MonoBehaviour
         optionSelected = true;
         DisableButtons();
 
-        currentDialogueIndex = indexJump;
+        cuurentDialogueIndex = indexJump;
     }
 
     private IEnumerator TypeText(string text)
@@ -127,15 +127,15 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
 
-        if(!dialogueList[currentDialogueIndex].isQuestion)
+        if(!dialogueList[cuurentDialogueIndex].isQuestion)
         {
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         }
 
-        if(dialogueList[currentDialogueIndex].isEnd)
+        if(dialogueList[cuurentDialogueIndex].isEnd)
             DialogueStop();
 
-        currentDialogueIndex++;
+        cuurentDialogueIndex++;
     }
 
     private void DialogueStop()
