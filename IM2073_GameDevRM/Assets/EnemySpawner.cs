@@ -8,7 +8,12 @@ public class EnemySpawner : MonoBehaviour
     private GameObject zombiePrefab;
 
     [SerializeField]
-    private float zombieInterval = 3.5f;
+    private float zombieInterval = 5f;
+
+    [SerializeField]
+    public int maxZombie = 50;
+    [SerializeField]
+    public int currentZombie = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +30,14 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator spawnEnemy(float interval, GameObject enemy)
     {
         yield return new WaitForSeconds(interval);
-        GameObject newEnemy = Instantiate(enemy, new Vector3(23,0,23), Quaternion.identity);
+        if(currentZombie <= maxZombie)
+        {
+            GameObject newEnemy = Instantiate(enemy, new Vector3(23, 0, 23), Quaternion.identity);
+            currentZombie += 1;
+        }
         StartCoroutine(spawnEnemy(interval, enemy));
+
     }
+
 }
 

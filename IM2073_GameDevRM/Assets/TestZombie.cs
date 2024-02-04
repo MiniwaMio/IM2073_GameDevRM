@@ -18,6 +18,7 @@ public class TestZombie : MonoBehaviour
     Animator anim;
 
     [SerializeField] private ZombieHealthBar healthBar;
+    [SerializeField] private GameObject death;
 
     public AudioSource soundZombie;
 
@@ -26,6 +27,7 @@ public class TestZombie : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+        death = GameObject.Find("EnemySpawner");
     }
 
     // Update is called once per frame
@@ -43,11 +45,13 @@ public class TestZombie : MonoBehaviour
     {
         isDead = false;
         var collider = GetComponent<Collider>();
+        
         Destroy(collider );
 
         if (count == 0)
         {
             soundZombie.Play();
+            death.GetComponent<EnemySpawner>().currentZombie-=1;
             count++;
         }
 
@@ -66,5 +70,7 @@ public class TestZombie : MonoBehaviour
         healthBar.SetHealthBar(hp);
         
     }
+
+
 
 }
