@@ -513,7 +513,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2105324308742430703, guid: 5f6d5dc8714c69947b5ad0a2b91cf846, type: 3}
       propertyPath: m_Speed
-      value: 4
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105324308742430703, guid: 5f6d5dc8714c69947b5ad0a2b91cf846, type: 3}
+      propertyPath: m_Acceleration
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2230872853673016119, guid: 5f6d5dc8714c69947b5ad0a2b91cf846, type: 3}
       propertyPath: m_TagString
@@ -587,6 +591,10 @@ PrefabInstance:
       propertyPath: soundZombie
       value: 
       objectReference: {fileID: 8716147885038952313}
+    - target: {fileID: 5495542556771788019, guid: 5f6d5dc8714c69947b5ad0a2b91cf846, type: 3}
+      propertyPath: m_Constraints
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 5672020742868631045, guid: 5f6d5dc8714c69947b5ad0a2b91cf846, type: 3}
       propertyPath: m_TagString
       value: Enemy

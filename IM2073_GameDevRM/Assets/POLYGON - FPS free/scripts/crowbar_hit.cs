@@ -25,6 +25,11 @@ public class crowbar_hit : MonoBehaviour
         public void OnCollisionEnter(Collision collision)
         {
 
+            if(collision.collider.tag == "Enemy")
+            {
+                collision.collider.gameObject.GetComponent<Zombie_take_damage>().take_dmg(dmg);
+            }
+
      
 
 

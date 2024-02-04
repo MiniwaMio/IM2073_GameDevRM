@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class polygon_fps_controller : MonoBehaviour
 {
@@ -61,7 +62,6 @@ public class polygon_fps_controller : MonoBehaviour
 
         GameObject target_add = GameObject.FindGameObjectWithTag("targets");
 
-        target_add.GetComponent<targets_for_bunny>().Add_Target(gameObject);
 
 
 
@@ -218,11 +218,17 @@ public class polygon_fps_controller : MonoBehaviour
         }
 
         health_gui.text = "HP : " + player_health;
-
+        int ctn = 0;
 
         if (player_health <= 0)
         {
             gameOver = true;
+            
+            if (ctn == 0)
+            {
+                SceneManager.LoadScene("GameOver");
+                ctn++;
+            }
         }
 
 
