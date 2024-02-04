@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Triggered");
         StartCoroutine(spawnEnemy(zombieInterval, zombiePrefab));
     }
 
@@ -32,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(interval);
         if(currentZombie <= maxZombie)
         {
-            GameObject newEnemy = Instantiate(enemy, new Vector3(23, 0, 23), Quaternion.identity);
+            GameObject newEnemy = Instantiate(enemy, new Vector3(688, 25, 549), Quaternion.identity);
             currentZombie += 1;
         }
         StartCoroutine(spawnEnemy(interval, enemy));

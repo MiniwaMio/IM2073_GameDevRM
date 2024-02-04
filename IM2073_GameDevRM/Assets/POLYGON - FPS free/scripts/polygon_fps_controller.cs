@@ -706,7 +706,7 @@ public class polygon_fps_controller : MonoBehaviour
             
 
 
-            jump_speed = 0.3f;
+            jump_speed = 0.15f;
 
             transform.position = transform.position + new Vector3(0, 0.1f, 0);
 

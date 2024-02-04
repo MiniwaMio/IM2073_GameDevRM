@@ -14,6 +14,6 @@ public class StartingScript : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("test scene");
+        SceneManager.LoadScene("InitialHouse");
     }
 }

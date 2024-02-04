@@ -28,9 +28,11 @@ public class DialogueManager : MonoBehaviour
 
   private void Start()
   {
-    dialogueParent.SetActive(false);
-    playerCamera = Camera.main.transform;
-  }
+        dialogueParent.SetActive(false);
+        playerCamera = Camera.main.transform;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
     public void dialogueSatrt(List<dialogueString> texttoPrint, Transform NPC)
     {
