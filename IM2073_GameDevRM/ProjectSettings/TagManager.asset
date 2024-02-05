@@ -9,6 +9,8 @@ TagManager:
   - rycle
   - blood
   - food
+  - food1
+  - baseq
   layers:
   - Default
   - TransparentFX

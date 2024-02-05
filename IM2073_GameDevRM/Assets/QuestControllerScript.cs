@@ -11,51 +11,41 @@ public class QuestControllerScript : MonoBehaviour
     TextMeshProUGUI speech;
     [SerializeField]
     public GameObject can1;
+
     [SerializeField]
-    public GameObject can2;
+    public GameObject baseQuest;
 
-    
-
-    private int counter = 0;
     // Start is called before the first frame update
-
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Triggered1");
-        speech.gameObject.SetActive(true);
-        speech.text = "Press E to take food";
-        if(Input.GetKeyDown(KeyCode.E) && collision.collider.gameObject.name == "Can_1")
+        if(other.tag == "Player")
         {
-            counter++;
-            quest.text = "Find food " + counter + "/2";
-            
-            can1.SetActive(false);
-                
-        }
+            speech.text = "Press e to take food";
+            speech.gameObject.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (gameObject.tag == "food1")
+                {
+                    can1.SetActive(false);
+                    quest.text = "Objective: Return to base";
+                    speech.gameObject.SetActive(false);
+                    gameObject.SetActive(false);
+                    baseQuest.SetActive(true);
 
-        
-        if (Input.GetKeyDown(KeyCode.E) && collision.collider.gameObject.name == "Can_3")
-        {
-            counter++;
-            quest.text = "Find food " + counter + "/2";
-            can2.SetActive(false);
+                }
+            }
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Entered");
-    }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
         speech.gameObject.SetActive(false);
     }
     void Start()
     {
         can1 = GameObject.Find("Can_1");
-
-        can2 = GameObject.Find("Can_3");
-        Debug.Log("Triggered1");
+        baseQuest = GameObject.FindWithTag("baseq");
+        baseQuest.SetActive(false);
     }
 
     // Update is called once per frame

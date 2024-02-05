@@ -21,12 +21,15 @@ public class OutOfBounceScript : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        speech.gameObject.SetActive(true);
+        if (other.tag == "Player")
+        {
+            speech.gameObject.SetActive(true);
+        }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
         speech.gameObject.SetActive(false);
     }
